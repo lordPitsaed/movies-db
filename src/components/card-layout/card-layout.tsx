@@ -1,5 +1,5 @@
 import { Space } from 'antd'
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { GuestIdContext, MovieService } from '../../context'
 import { Movie } from '../../services/moviedb-service-types'
 import MovieCard from '../movie-card/movie-card'
