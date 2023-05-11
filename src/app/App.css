@@ -1,0 +1,12 @@
+.app {
+    background-color: #ffff;
+    padding: 19px 32px;
+    padding-bottom: 17px;
+    width: 100%;
+    max-width: 1010px;
+    margin: 0 auto;
+}
+
+.ant-tabs-nav-wrap {
+    justify-content: center;
+}
