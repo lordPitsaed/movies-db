@@ -19,6 +19,7 @@ const MovieCard: React.FC<{
     posterPath: string
     releaseDate: string
     rating: number
+    postingRating: boolean
     onRatingChange: (rating: number) => void
 }> = ({
     id,
@@ -29,6 +30,7 @@ const MovieCard: React.FC<{
     releaseDate,
     rating,
     onRatingChange,
+    postingRating,
 }) => {
     const { movies: ratedMovies } = useContext(RatedMovies)
 
@@ -39,6 +41,7 @@ const MovieCard: React.FC<{
 
     const [newOverview, setNewOverview] = useState('')
     const [rateValue, setRateValue] = useState(0)
+    const [rateLoading, setRateLoading] = useState(postingRating)
 
     useEffect(() => {
         setNewOverview(
@@ -52,6 +55,11 @@ const MovieCard: React.FC<{
         )
         setRateValue(getInitialRateValue(ratedMovies, id) as number)
     }, [])
+
+    useEffect(() => {
+        setRateLoading(postingRating)
+        console.log(rateLoading)
+    }, [postingRating])
 
     return (
         <Card size="small" bordered={false} className="card">
@@ -88,6 +96,12 @@ const MovieCard: React.FC<{
                                 onRatingChange(rating)
                             }}
                             allowClear={false}
+                            disabled={rateLoading}
+                            style={
+                                !rateLoading
+                                    ? { color: '#ebdd49' }
+                                    : { color: 'lightblue' }
+                            }
                         ></Rate>
                     </div>
                 </div>
