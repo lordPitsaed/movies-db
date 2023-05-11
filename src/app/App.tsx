@@ -62,6 +62,7 @@ function App() {
                         <GuestIdContext.Provider value={guestId}>
                             <RatedMovies.Provider value={ratedMovies}>
                                 <Tabs
+                                    destroyInactiveTabPane
                                     items={[
                                         {
                                             label: 'Search',
