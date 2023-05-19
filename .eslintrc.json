@@ -22,7 +22,16 @@
         "prettier"
     ],
     "rules": {
-        "prettier/prettier": "warn",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "prettier/prettier": ["warn", {
+            "endOfLine": "auto", 
+            "tabWidth": 2,
+            "semi": true,
+            "singleQuote": true,
+            "trailingComma": "all",
+            "printWidth": 80,
+            "useTabs": false ,
+            "jsxSingleQuote": true
+        }]
     }
 }
