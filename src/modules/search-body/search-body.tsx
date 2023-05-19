@@ -20,16 +20,16 @@ const SearchBody: React.FC<{
 
   const movieService = useContext(MovieService);
   const showSearchResults = debounce((query: string) => {
-    setNothingFound(false);
     movieService.searchMovie(query).then(({ movies, pages }) => {
       setPages(pages);
       movies.length === 0 && setNothingFound(true);
       setLoading(false);
       setMovies(movies);
     });
-  }, 300);
+  }, 1000);
 
   useEffect(() => {
+    setNothingFound(false);
     showSearchResults(query);
     return () => {
       saveQuery(query);
